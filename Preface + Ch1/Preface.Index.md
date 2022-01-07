@@ -1,0 +1,36 @@
+- Golang, 2007 年 RG, RP, Ken Thompson 開發的, Nov 2009 發布
+	- 編譯跟執行都想快
+	- Ken Thompson 大概算是歷史等級的人物了，並且同樣歷史等級的 C 語言也是他設計的
+		- Ref https://www.quora.com/Why-is-the-C-language-important
+		- 基本上是 OS 時代，跟 cli 時代的基石
+	- 其實這本書名跟 TCPL 名字有點像，也許也是一種呼應
+- C & Golang 都是 target pro programmer
+	- 做了不少精簡，捨去之前常會導致犯錯的設計和語法
+	- 更彈性的 OO
+	- 有 GC
+		- GC 的好跟壞 https://stackoverflow.com/questions/3214980/what-are-the-disadvantages-in-using-garbage-collection
+			- 大部分情況，GC 都會幫你省去不少麻煩
+			- 但有些場景，像是巨量的繪圖運算/模擬，同時間 free 跟 malloc 的 mem 可能很多，並且很難以估計當前是否還使用著，這時候 GC 可能就會很難實作的很 performant (or buggy)
+-  Golang -> 建 infra, tools, network server
+	-  Popular as a placement for untyped language, expres vs safety
+		-  沒有到很認同，使用場景差不少
+		-  Golang 有沒有很 expres 我覺得有待討論
+-  Golang, open source
+	-  通常跨平台寫的程式都可以直接跑
+	-  Q: Golang 怎麼處理跨平台底層編譯問題？
+		-  https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-machinecode/ & https://github.com/golang/go/blob/master/src/cmd/compile/README.md
+		-  https://github.com/teh-cmc/mmm
+			-  Golang 看起來就很不想讓你去直接操作 malloc 和 deallocate 一段自訂長度的記憶體，他希望你都透過變數宣告來 alloc, 並在 func 結束時 dealloc
+			-  所以代表，你基本上在 code/中間代碼那層，是不會看到編譯出任何直接 alloc 的語法的，可能都會到 machine code 才開始直接變成指令（rust 也許有其他更聰明的做法，能夠兼顧）
+			-  也許還是有做法可以讓 GC 跟這種需求能夠好好搭配，但語言等級不是圍繞在前者這個思維上
+			-  有可能也是 golang 比較少拿來真的寫高頻圖像模擬之類的軟體，記憶體跟 bit mani 的工具不夠多
+		-  基本上跟一般編譯語言還是相近，會先從 AST 轉到中間層，在變成任何平台都可以用的指令集
+		-  看起來如果要到一些 system/CPU/平台等級的東西，也會有 golang 去 call c lib 的實作？https://cs.opensource.google/go/x/sys
+			-  https://karthikkaranth.me/blog/calling-c-code-from-go/#:~:text=The%20import%20%22C%22%20line%20allows,malloc%20and%20free%3B%20and%20greeter.
+				-  這個滿有趣的，似乎 import "C" 可以不用重新用 cgo build，只要正常跑就好，因為 C 有支援很多 C 的 method
+				-  但不想這樣做，就是額外寫 C file, 用 cgo_enabled 編譯
+			-  簡單來說，有所謂的 cgo, 和 go assembly 能夠讓某個 go func 變成用 c/asm 實作 (hello world https://stackoverflow.com/questions/2951028/is-it-possible-to-include-inline-assembly-in-go-code)
+			- 接著，因為 gobuild 也有一個 `CGO_ENABLED=0 go build` (https://stackoverflow.com/questions/47714278/why-is-compiling-with-cgo-enabled-0-slower)，你就可以用這種方式來 call unsafe 的實作（像是 sys/cpu，這些官方 lib 就會用到這些）
+			- cgo ref https://pkg.go.dev/cmd/cgo
+			- How to cross compile Go _with CGO_ programs for a different OS/Arch https://gist.github.com/steeve/6905542
+			- https://cs.opensource.google/go/x/sys/+/master:cpu/cpu_gccgo_x86.c 和 https://cs.opensource.google/go/x/sys/+/master:cpu/cpu_gccgo_x86.go 就是，把 func 實作寫在 C 裏

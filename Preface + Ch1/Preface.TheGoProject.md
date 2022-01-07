@@ -1,0 +1,27 @@
+### The Go Project
+- 除了有點像是 C 的舊情人，同時也要解決當時 Google 自己碰到的困難
+- 講的很好聽，總是就是
+	- 複雜度是會指數成長的
+	- simplicity 不 simple，因為在過程中要一直考量 conceptual integrity
+	- 但後來 Golang 很常被使用在 DDD，其實有點跟這些概念不完全相通
+---
+- Golang 同時是一個 PL + lib project
+- 但也是包含了一個「激進極簡主義」的文化
+	- GC, pkg, constructor, operator overloading, default params, 繼承, 范型, macros, threads, exceptions
+---
+- 型別系統比 C++/Haskell 更好學，但同時也比 untyped lang 更安全
+- 在意當代/現代系統設計
+	- 在意 auto init
+	- lightweight threads
+- Go std lib 很齊全（不過我覺得是相對而言，講的太好聽了）
+	- https://www.quora.com/What-does-batteries-included-philosophy-mean
+	- 但寫程式總是需要 lib 的，所以這個我覺得參考看看就好，生態系完不完善比較重要
+	- 你不會喜歡一個語言 std lib 超齊全，可是想找一個 ORM 來用時，沒半套成熟的
+- Org of the book (skip)
+---
+Worth mentions
+- https://go.dev/ 主網站，純介紹用
+- https://go.dev/blog/all go blog, 有一些 announcement 和 internals 介紹，但 golang 這個語言官方層級的改動其實不多，似乎也沒有太多新 patch 大家會去追
+- https://go.dev/play/ go playground, 一個 REPL 環境
+- https://pkg.go.dev/ go std lib, 可以去看官方 lib 文件，和直接指向 source code
+	- https://cs.opensource.google/ 還在用 google host, 真是 evil

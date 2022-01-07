@@ -1,0 +1,115 @@
+{
+  "main": {
+    "id": "3b0f8ce1e2cf366e",
+    "type": "split",
+    "children": [
+      {
+        "id": "a3b625279dd4694e",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Index.md",
+            "mode": "source"
+          }
+        },
+        "group": "f24b8885ca00ddd3"
+      },
+      {
+        "id": "f84a2883ccfc0627",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Index.md",
+            "mode": "preview"
+          }
+        },
+        "group": "f24b8885ca00ddd3"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "42f6001d271b7080",
+    "type": "split",
+    "children": [
+      {
+        "id": "c25d0ebbab38db16",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96052c792f1441a4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8a6b984bc005e33e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 241.01218795776367
+  },
+  "right": {
+    "id": "04d484878530c673",
+    "type": "split",
+    "children": [
+      {
+        "id": "bb861f85def858bb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bb12c923fa6ceac4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "a3b625279dd4694e",
+  "lastOpenFiles": [
+    "Index.md",
+    "Preface + Ch1/Ch1.2.md",
+    "Preface + Ch1/Ch1.1.md",
+    "Preface + Ch1/Ch1.7+1.8.md",
+    "Preface + Ch1/Ch1.5+1.6.md",
+    "Preface + Ch1/Ch1.4.md",
+    "Preface + Ch1/Ch1.3.md",
+    "ㄎㄜ.md",
+    "Preface + Ch1/Preface.Setup.md",
+    "Preface + Ch1/Preface.Index.md"
+  ]
+}
