@@ -81,7 +81,7 @@ The Go Programming Language Ch. 5.6 - 5.10 Notes
         if err != nil {
             // handle error
         }
-    }
+    }()
     ```
 
 5.9 Panic
